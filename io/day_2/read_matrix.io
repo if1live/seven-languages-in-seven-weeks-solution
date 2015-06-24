@@ -1,3 +1,6 @@
+# 행렬을 파일에 적어놓고,
+# 파일로부터 행렬을 읽어 들이는 프로그램을 작성하라.
+
 readMatrix := method(filename,
     mat := list()
 

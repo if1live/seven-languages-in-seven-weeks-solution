@@ -1,10 +1,14 @@
-minVal := 0
+# 1과 100 사이에 존재하는 임의의 수를 알아맞히는 프로그램을 작성하라.
+# 기회는 10번이다. 원한다면, 추측이 끝나고 나서
+# '가까워지고 있음' 혹은 '멀어지고 있음'과 같은 힌트를 제공하는 김을을 함께 구현하라.
+
+minVal := 1
 maxVal := 100
 maxTryCount := 10
 
 Quiz := Object clone
 Quiz initialize := method(
-    self solution := Random value(maxVal) roundDown
+    self solution := (Random value(maxVal - minVal) roundDown) + minVal
     self tryCount := 0
     self prevGuess := maxVal * 2
     self success := false

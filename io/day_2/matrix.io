@@ -1,3 +1,12 @@
+# 2차원 리스트를 위한 프로토타입을 작성하라.
+# dim(x, y) 메소드는 x개의 요소를 갖는 y번째 리스트를 할당해야한다.
+# set(x, y, value)는 값을 설정하고
+# get(x, y)는 해당 좌표의 값을 리턴한다.
+#
+# 보너스: 원래 리스트와 새로운 리스트 사이에
+# (new_matrix get(y, x)) == matrix get(x, y)라는 등식이 성립하도록
+# 전치 transpose 행렬 메소드를 작성하라.
+
 Matrix := Object clone
 
 Matrix dim := method(x, y,
