@@ -1,11 +1,15 @@
 /*
-['sudoku4'].
+스도쿠 코드의 해법을 보기 좋게 출력하도록 만들어보라.
+
+['sudoku4_pretty'].
 sudoku([
 _, _, 2, 3,
 _, _, _, _,
 _, _, _, _,
 3, 4, _, _], Solution).
 */
+
+
 valid([]).
 valid([Head|Tail]) :-
 	fd_all_different(Head),
@@ -38,4 +42,9 @@ sudoku(Puzzle, Solution) :-
 
 	valid([Row1, Row2, Row3, Row4,
 		   Col1, Col2, Col3, Col4,
-		   Square1, Square2, Square3, Square4]).
+		   Square1, Square2, Square3, Square4]),
+
+	format("%d %d %d %d\n", Row1),
+	format("%d %d %d %d\n", Row2),
+	format("%d %d %d %d\n", Row3),
+	format("%d %d %d %d\n", Row4).
