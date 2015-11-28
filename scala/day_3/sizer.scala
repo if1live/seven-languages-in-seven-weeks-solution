@@ -33,7 +33,9 @@ object PageLoader {
 val urls = List(
   "https://www.amazon.com/",
   "https://www.twitter.com/",
-  "http://www.google.com/",
+  // 예외가 발생해서 주석처리
+  // java.nio.charset.MalformedInputException: Input length = 1
+  //"http://www.google.com/",
   "http://www.cnn.com/")
 
 def timeMethod(method: () => Unit) {

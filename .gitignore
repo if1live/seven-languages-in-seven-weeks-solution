@@ -1,3 +1,5 @@
 # erlang
 *.beam
 *.dump
+
+npm-debug.log
