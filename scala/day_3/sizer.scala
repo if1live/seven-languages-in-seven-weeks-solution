@@ -21,12 +21,25 @@ object PageLoader {
     linkReg.findAllIn(html).matchData.length
   }
 
-  def getTotalPageSize(url: String): Int = {
+  def getLinks(url: String): List[String] = {
     val html = getHtml(url)
-    linkReg.findAllIn(html).matchData.foreach(x => {
-      println(x.group(1))
-    })
-    return 0
+    var matches = linkReg.findAllIn(html).matchData
+    var links = matches.map(m => m.group(1)).toList
+    // ?lang=id 무시
+    links = links.filter(link => link.charAt(0) != '?')
+    // #supported_languages 는 내부 링크니까 무시
+    links = links.filter(link => link.charAt(0) != '#')
+
+    var schemaLinks = links.filter(link => link.substring(0, 2) == "//")
+    links = links diff schemaLinks
+    var outerLinks = links.filter(link => link.charAt(0) != '/')
+    var innerLinks = links diff outerLinks
+
+    schemaLinks = schemaLinks.map(link => "http:" + link)
+    innerLinks = innerLinks.map(link => url + link)
+
+    var retval = (schemaLinks ++ outerLinks ++ innerLinks).toSet.toList
+    return retval
   }
 }
 
@@ -72,6 +85,7 @@ def getLinkCountConcurrently() = {
   for(url <- urls) {
     actor { caller ! (url, PageLoader.getLinkCount(url)) }
   }
+
   for(i <- 1 to urls.size) {
     receive {
       case (url, count) =>
@@ -82,6 +96,22 @@ def getLinkCountConcurrently() = {
 
 def getTotalPageSizeConcurrently() = {
   val caller = self
+  var rootUrl = "https://www.twitter.com/"
+  var links = PageLoader.getLinks(rootUrl)
+  for(url <- links) {
+    actor { caller ! (url, PageLoader.getPageSize(url)) }
+  }
+
+  var sizeList = List(0)
+  for(i <- 1 to links.size) {
+    receive {
+      case (url, size) =>
+        println("element size for " + url + ": " + size)
+        sizeList = size.asInstanceOf[Int] :: sizeList
+    }
+  }
+  var totalSize = (0 /: sizeList) {(sum, i) => sum + i}
+  println("Total Page size for " + rootUrl + ": " + totalSize)
 }
 
 if(args.length == 0) {
