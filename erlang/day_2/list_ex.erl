@@ -14,6 +14,9 @@ main_ex1() ->
 ex1_func(LanguageList, Keyword) ->
 	[{Name, Desc, Keyword} || {Name, Desc} <- LanguageList].
 
+% [{item, quantity, price}, ...] 같은 내용을 담고 있는 쇼핑 리스트가 있다고 하자.
+% total_price가 quantity에 price를 곱한 값을 의미한다고 할 때,
+% items 리스트를 [{item, total_price}, ...] 의 형태로 생성하는 리스트 컴프리헨션 코드를 작성하라.
 main_ex2() ->
 	Cart = [{pencil, 4, 0.25},
 			{pen, 1, 1.20},

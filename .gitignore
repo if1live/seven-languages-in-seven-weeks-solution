@@ -2,4 +2,7 @@
 *.beam
 *.dump
 
+# clojure
+clojure*
+
 npm-debug.log

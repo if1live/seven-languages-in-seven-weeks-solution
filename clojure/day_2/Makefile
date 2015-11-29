@@ -1,4 +1,4 @@
-CLOJURE_JAR = ~/lang/clojure/clojure-1.7.0.jar
+CLOJURE_JAR = ../clojure/clojure-1.7.0.jar
 
 all: compass unless_else sample
 

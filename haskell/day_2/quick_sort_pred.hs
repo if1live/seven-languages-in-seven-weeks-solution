@@ -11,3 +11,7 @@ quickSortPred (pivot:t) pred =
   quickSortPred [x | x <- t, (pred x pivot)] pred
   ++ [pivot] ++
   quickSortPred [x | x <- t, not (pred x pivot)] pred
+
+run = do
+  print(quickSortPred [3, 1, 5, 2] (\x y -> x > y))
+  print(quickSortPred [3, 1, 5, 2] (\x y -> x < y))

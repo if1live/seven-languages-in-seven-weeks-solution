@@ -1,3 +1,4 @@
+% Doctor 모니터를 위한 모니터를 만들어라. 어느 하나가 죽으면 다시 시작하도록 하라.
 -module(two_doctor).
 -export([loop/1, create_doctors/0]).
 

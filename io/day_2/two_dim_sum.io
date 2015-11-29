@@ -7,3 +7,5 @@ sum := method(data,
     for(i, 0, (data size)-1, retval = retval + data at(i) sum)
 )
 sum(data) println
+
+"EOF"

@@ -1,3 +1,5 @@
+all: translate translate_service roulette
+
 translate:
 	erl -compile translate.erl
 	erl -noshell -s translate main -s init stop

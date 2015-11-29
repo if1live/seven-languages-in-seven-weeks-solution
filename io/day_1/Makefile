@@ -1,0 +1,2 @@
+all:
+	io main.io

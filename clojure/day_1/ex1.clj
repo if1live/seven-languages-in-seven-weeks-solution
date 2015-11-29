@@ -6,4 +6,3 @@
 (println (big "sora" 3))
 (println (big "sora" 4))
 (println (big "sora" 5))
-

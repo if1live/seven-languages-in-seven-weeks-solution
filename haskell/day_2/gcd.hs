@@ -10,3 +10,6 @@ gdc x y
   | x > y = gcdCore x y
   | x < y = gcdCore y x
   | x == y = x
+
+run = do
+  gcd 60 24

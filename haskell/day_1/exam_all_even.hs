@@ -1,4 +1,7 @@
 -- allEven을 작성하기 위한 서로 다른 방법을 몇 개나 찾을 수 있는가?
+-- how to execute
+-- :load exam_all_even.hs
+-- run
 
 module Main where
 

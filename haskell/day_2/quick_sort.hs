@@ -9,3 +9,6 @@ quickSort (pivot:t) =
   quickSort [x | x <- t, x < pivot]
   ++ [pivot] ++
   quickSort [x | x <- t, x > pivot]
+
+run = do
+  quickSort [3, 1, 5, 2]

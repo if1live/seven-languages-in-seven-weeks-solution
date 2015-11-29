@@ -43,3 +43,7 @@ parseIntCore (h:t) curr counter 0
   | otherwise = parseIntCore t curr counter 0
 
 parseInt str = parseIntCore str 0 0 1
+
+run = do
+  print(parseInt "$2,345,678.99")
+  print(parseInt "$02,345,678.99")

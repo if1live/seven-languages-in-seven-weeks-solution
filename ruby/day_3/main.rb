@@ -1,5 +1,23 @@
 #!/usr/bin/env ruby
 
+=begin
+CsvRow 객체를 리턴하는 each 메서드를 지원하도록 CSV 애플리케이션을 수정하라.
+그 CsvRow에서 주어진 헤딩 값에 해당하는 칼럼의 값을 리턴하도록
+method_missing을 사용하라.
+
+예를 들어 이런 내용을 담은 파일이 있다고 하자.
+
+one, two
+lions, tigers
+
+그러면 API는 다음과 같이 동작해야 한다.
+
+csv = RubyCsv.new
+csv.each {|row| puts row.one}
+
+이러한 코드는 "lions"를 화면에 출력해야 한다
+=end
+
 FILENAME = 'test.csv'
 
 

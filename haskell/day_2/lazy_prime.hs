@@ -19,3 +19,6 @@ nextPrime num
 lazyPrime x y = x:(lazyPrime y (nextPrime y))
 
 prime = lazyPrime 2 3
+
+run = do
+  print(take 10 (prime))

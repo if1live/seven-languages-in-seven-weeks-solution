@@ -12,3 +12,5 @@ Computer slotNames println
 
 com := Computer clone
 com calcPrice println
+
+"EOF"

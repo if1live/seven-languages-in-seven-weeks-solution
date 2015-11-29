@@ -1,3 +1,4 @@
+% translate_service를 모니터하다가 그것이 동작을 멈추면 다시 실행하라.
 -module(translate_service_monitor).
 -export([doctor_loop/0, translate_loop/0, translate/2]).
 
