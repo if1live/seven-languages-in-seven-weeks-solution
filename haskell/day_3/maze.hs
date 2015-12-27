@@ -67,16 +67,16 @@ calcVisitablNextNodes maze (h:t) visitedList
   | nodeExistInList visitedList h = calcVisitablNextNodes maze t visitedList
   | otherwise = [h] ++ calcVisitablNextNodes maze t visitedList
 
-solveMaze_r :: Maze Char -> Node Int Char -> [Node Int Char] -> [Node Int Char] -> [Node Int Char]
+solveMaze_r :: Maze Char -> Node Int Char -> [Node Int Char] -> [Node Int Char] -> [[Node Int Char]]
 solveMaze_r maze node [] visitedList =
   if node ==  (mazeFinishNode maze)
-  then visitedList ++ [node]
+  then [visitedList ++ [node]]
   else []
 
 solveMaze_r maze node (h:t) visitedList =
   let nextVisitedList = visitedList ++ [node]
   in if node == (mazeFinishNode maze)
-     then nextVisitedList
+     then [nextVisitedList]
      else
        (solveMaze_r maze h
         (calcVisitablNextNodes maze
@@ -129,7 +129,6 @@ errorGrid =
     ".x.",
     "Gxx"
   ]
-
 
 --sampleMaze = Maze sampleGrid
 --sampleMaze = Maze errorGrid
